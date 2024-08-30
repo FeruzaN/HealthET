@@ -13,3 +13,4 @@ const DoctorSchema = new mongoose.Schema({
 
 const DoctorModel = mongoose.model("Doctors", DoctorSchema)
 module.exports= DoctorModel
+//grshdfg
