@@ -1,16 +1,40 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const DoctorSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    password: String,
-    workplace: String,
-    gender: String,
-    specialty: String,
-    dob: String,
-    age: String
-})
+const doctorSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    workplace: {
+        type: String,
+        required: true,
+    },
+    specialty: {
+        type: String,
+        required: true,
+    },
+    age: {
+        type: Number,
+        required: true,
+    },
+    dob: {
+        type: Date,
+        required: true,
+    },
+    gender: {
+        type: String,
+        enum: ['male', 'female'],
+        required: true,
+    },
+});
 
-const DoctorModel = mongoose.model("Doctors", DoctorSchema)
-module.exports= DoctorModel
-//grshdfg
+module.exports = mongoose.model('Doctor', doctorSchema);
